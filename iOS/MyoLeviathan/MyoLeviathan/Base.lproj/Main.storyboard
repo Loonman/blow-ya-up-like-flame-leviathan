@@ -1,25 +1,124 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G06-Iy-k0A">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="58L-hw-00p">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="G06-Iy-k0A" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="H4o-8c-pl8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pmh-Ne-JKs" kind="relationship" relationship="rootViewController" id="0fT-ae-mvA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ay0-WS-CH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="560" y="147"/>
+        </scene>
+        <!--Controller-->
+        <scene sceneID="6ms-q8-w9s">
+            <objects>
+                <viewController id="gi6-BF-dyD" customClass="ControllerViewController" customModule="MyoLeviathan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="mZ6-3Q-9nO"/>
+                        <viewControllerLayoutGuide type="bottom" id="WFI-Wu-glh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="SVM-wR-jX1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Controller" id="aDQ-AB-nQS"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sr0-Gd-QPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2728" y="147"/>
+        </scene>
+        <!--Connect Myo-->
+        <scene sceneID="mUl-T2-uzX">
+            <objects>
+                <viewController id="pmh-Ne-JKs" customClass="ConnectViewController" customModule="MyoLeviathan" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="giw-Ry-5Ey"/>
+                        <viewControllerLayoutGuide type="bottom" id="IW8-Vn-2Pr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9hY-Vy-MO7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the phone to the Myo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOn-pX-GLf">
+                                <rect key="frame" x="202" y="289" width="197" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="VOn-pX-GLf" secondAttribute="centerX" id="BWc-6V-HK2"/>
+                            <constraint firstAttribute="centerY" secondItem="VOn-pX-GLf" secondAttribute="centerY" id="Klj-op-ghn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Connect Myo" id="cZ4-EZ-jKb"/>
+                    <connections>
+                        <segue destination="f3F-cj-Eb0" kind="show" identifier="ToSync" id="QwN-XG-iIt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uIB-Ti-bKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1294" y="147"/>
+        </scene>
+        <!--Sync Myo-->
+        <scene sceneID="lY9-Np-2yY">
+            <objects>
+                <viewController id="f3F-cj-Eb0" customClass="SyncViewController" customModule="MyoLeviathan" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m5m-WC-l0e"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Fm-ff-TFI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PDM-Qm-VHq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perform the sync gesture" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zk2-b9-y1h">
+                                <rect key="frame" x="204" y="413" width="193" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQp-k5-rS7">
+                                <rect key="frame" x="16" y="72" width="568" height="319.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XQp-k5-rS7" secondAttribute="height" multiplier="16:9" id="EIi-qa-SXw"/>
+                                </constraints>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zk2-b9-y1h" firstAttribute="top" secondItem="XQp-k5-rS7" secondAttribute="bottom" constant="21.5" id="9hv-AA-qDg"/>
+                            <constraint firstAttribute="centerX" secondItem="Zk2-b9-y1h" secondAttribute="centerX" id="A4O-Ax-QJu"/>
+                            <constraint firstItem="XQp-k5-rS7" firstAttribute="top" secondItem="m5m-WC-l0e" secondAttribute="bottom" constant="8" id="Dzd-RV-Yia"/>
+                            <constraint firstItem="XQp-k5-rS7" firstAttribute="leading" secondItem="PDM-Qm-VHq" secondAttribute="leadingMargin" id="hfF-l0-1n9"/>
+                            <constraint firstItem="XQp-k5-rS7" firstAttribute="trailing" secondItem="PDM-Qm-VHq" secondAttribute="trailingMargin" id="j1I-5f-mQD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sync Myo" id="WEM-m2-eCL"/>
+                    <connections>
+                        <outlet property="gifView" destination="XQp-k5-rS7" id="QZG-Bb-OYe"/>
+                        <segue destination="gi6-BF-dyD" kind="show" identifier="ToController" id="IYW-9g-uJX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EQV-7R-v5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2000" y="199"/>
         </scene>
     </scenes>
 </document>

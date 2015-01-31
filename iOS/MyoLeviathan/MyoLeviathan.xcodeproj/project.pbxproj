@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63EA6A0A1A7D854200B20C4A /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA6A091A7D854200B20C4A /* ConnectViewController.swift */; };
+		63EA6A0C1A7D855100B20C4A /* SyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA6A0B1A7D855100B20C4A /* SyncViewController.swift */; };
+		63EA6A0E1A7D855F00B20C4A /* ControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA6A0D1A7D855F00B20C4A /* ControllerViewController.swift */; };
+		63EA6A1F1A7D92B400B20C4A /* Gesture-reference-gesture.gif in Resources */ = {isa = PBXBuildFile; fileRef = 63EA6A1E1A7D92B400B20C4A /* Gesture-reference-gesture.gif */; };
 		63F38EE51A7D6BDE0062E3D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F38EE41A7D6BDE0062E3D8 /* AppDelegate.swift */; };
-		63F38EE71A7D6BDE0062E3D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F38EE61A7D6BDE0062E3D8 /* ViewController.swift */; };
 		63F38EEA1A7D6BDE0062E3D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63F38EE81A7D6BDE0062E3D8 /* Main.storyboard */; };
 		63F38EEC1A7D6BDE0062E3D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63F38EEB1A7D6BDE0062E3D8 /* Images.xcassets */; };
 		63F38EEF1A7D6BDE0062E3D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F38EED1A7D6BDE0062E3D8 /* LaunchScreen.xib */; };
 		63F38EFB1A7D6BDE0062E3D8 /* MyoLeviathanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F38EFA1A7D6BDE0062E3D8 /* MyoLeviathanTests.swift */; };
+		63F38F081A7D6E580062E3D8 /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F38F071A7D6E580062E3D8 /* MyoKit.framework */; };
+		63F38F0A1A7D6E650062E3D8 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F38F091A7D6E650062E3D8 /* CoreBluetooth.framework */; };
+		63F38F0C1A7D6E740062E3D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F38F0B1A7D6E740062E3D8 /* SystemConfiguration.framework */; };
+		63F38F111A7D7FDF0062E3D8 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F38F101A7D7FDF0062E3D8 /* Timer.swift */; };
+		63F38F131A7D842E0062E3D8 /* MyoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F38F121A7D842E0062E3D8 /* MyoManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +34,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		63EA6A091A7D854200B20C4A /* ConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
+		63EA6A0B1A7D855100B20C4A /* SyncViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncViewController.swift; sourceTree = "<group>"; };
+		63EA6A0D1A7D855F00B20C4A /* ControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerViewController.swift; sourceTree = "<group>"; };
+		63EA6A1E1A7D92B400B20C4A /* Gesture-reference-gesture.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Gesture-reference-gesture.gif"; sourceTree = "<group>"; };
 		63F38EDF1A7D6BDE0062E3D8 /* MyoLeviathan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyoLeviathan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F38EE31A7D6BDE0062E3D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63F38EE41A7D6BDE0062E3D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		63F38EE61A7D6BDE0062E3D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		63F38EE91A7D6BDE0062E3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63F38EEB1A7D6BDE0062E3D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		63F38EEE1A7D6BDE0062E3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		63F38EF41A7D6BDE0062E3D8 /* MyoLeviathanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyoLeviathanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F38EF91A7D6BDE0062E3D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63F38EFA1A7D6BDE0062E3D8 /* MyoLeviathanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyoLeviathanTests.swift; sourceTree = "<group>"; };
+		63F38F071A7D6E580062E3D8 /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MyoKit.framework; sourceTree = "<group>"; };
+		63F38F091A7D6E650062E3D8 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		63F38F0B1A7D6E740062E3D8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		63F38F0D1A7D70200062E3D8 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		63F38F101A7D7FDF0062E3D8 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		63F38F121A7D842E0062E3D8 /* MyoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyoManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63F38F0C1A7D6E740062E3D8 /* SystemConfiguration.framework in Frameworks */,
+				63F38F0A1A7D6E650062E3D8 /* CoreBluetooth.framework in Frameworks */,
+				63F38F081A7D6E580062E3D8 /* MyoKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +81,7 @@
 			children = (
 				63F38EE11A7D6BDE0062E3D8 /* MyoLeviathan */,
 				63F38EF71A7D6BDE0062E3D8 /* MyoLeviathanTests */,
+				63F38F061A7D6E360062E3D8 /* Frameworks */,
 				63F38EE01A7D6BDE0062E3D8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,8 +98,11 @@
 		63F38EE11A7D6BDE0062E3D8 /* MyoLeviathan */ = {
 			isa = PBXGroup;
 			children = (
+				63F38F0E1A7D7FB90062E3D8 /* Modules */,
 				63F38EE41A7D6BDE0062E3D8 /* AppDelegate.swift */,
-				63F38EE61A7D6BDE0062E3D8 /* ViewController.swift */,
+				63EA6A091A7D854200B20C4A /* ConnectViewController.swift */,
+				63EA6A0B1A7D855100B20C4A /* SyncViewController.swift */,
+				63EA6A0D1A7D855F00B20C4A /* ControllerViewController.swift */,
 				63F38EE81A7D6BDE0062E3D8 /* Main.storyboard */,
 				63F38EEB1A7D6BDE0062E3D8 /* Images.xcassets */,
 				63F38EED1A7D6BDE0062E3D8 /* LaunchScreen.xib */,
@@ -90,6 +114,8 @@
 		63F38EE21A7D6BDE0062E3D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				63EA6A1E1A7D92B400B20C4A /* Gesture-reference-gesture.gif */,
+				63F38F0D1A7D70200062E3D8 /* Bridging-Header.h */,
 				63F38EE31A7D6BDE0062E3D8 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -110,6 +136,33 @@
 				63F38EF91A7D6BDE0062E3D8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63F38F061A7D6E360062E3D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63F38F0B1A7D6E740062E3D8 /* SystemConfiguration.framework */,
+				63F38F091A7D6E650062E3D8 /* CoreBluetooth.framework */,
+				63F38F071A7D6E580062E3D8 /* MyoKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63F38F0E1A7D7FB90062E3D8 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				63F38F0F1A7D7FC60062E3D8 /* Timer */,
+				63F38F121A7D842E0062E3D8 /* MyoManager.swift */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		63F38F0F1A7D7FC60062E3D8 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				63F38F101A7D7FDF0062E3D8 /* Timer.swift */,
+			);
+			name = Timer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +214,11 @@
 				TargetAttributes = {
 					63F38EDE1A7D6BDE0062E3D8 = {
 						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					63F38EF31A7D6BDE0062E3D8 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -192,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63EA6A1F1A7D92B400B20C4A /* Gesture-reference-gesture.gif in Resources */,
 				63F38EEA1A7D6BDE0062E3D8 /* Main.storyboard in Resources */,
 				63F38EEF1A7D6BDE0062E3D8 /* LaunchScreen.xib in Resources */,
 				63F38EEC1A7D6BDE0062E3D8 /* Images.xcassets in Resources */,
@@ -212,8 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63F38EE71A7D6BDE0062E3D8 /* ViewController.swift in Sources */,
+				63F38F111A7D7FDF0062E3D8 /* Timer.swift in Sources */,
 				63F38EE51A7D6BDE0062E3D8 /* AppDelegate.swift in Sources */,
+				63F38F131A7D842E0062E3D8 /* MyoManager.swift in Sources */,
+				63EA6A0A1A7D854200B20C4A /* ConnectViewController.swift in Sources */,
+				63EA6A0E1A7D855F00B20C4A /* ControllerViewController.swift in Sources */,
+				63EA6A0C1A7D855100B20C4A /* SyncViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,9 +401,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/David/Downloads/Myo-iOS-SDK-0.4.0",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MyoLeviathan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyoLeviathan/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -348,9 +417,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/David/Downloads/Myo-iOS-SDK-0.4.0",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MyoLeviathan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyoLeviathan/Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -407,6 +482,7 @@
 				63F38F001A7D6BDE0062E3D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		63F38F011A7D6BDE0062E3D8 /* Build configuration list for PBXNativeTarget "MyoLeviathanTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +491,7 @@
 				63F38F031A7D6BDE0062E3D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
