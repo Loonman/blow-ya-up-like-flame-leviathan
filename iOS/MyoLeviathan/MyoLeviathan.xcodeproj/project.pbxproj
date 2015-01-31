@@ -11,6 +11,8 @@
 		63EA6A0C1A7D855100B20C4A /* SyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA6A0B1A7D855100B20C4A /* SyncViewController.swift */; };
 		63EA6A0E1A7D855F00B20C4A /* ControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA6A0D1A7D855F00B20C4A /* ControllerViewController.swift */; };
 		63EA6A1F1A7D92B400B20C4A /* Gesture-reference-gesture.gif in Resources */ = {isa = PBXBuildFile; fileRef = 63EA6A1E1A7D92B400B20C4A /* Gesture-reference-gesture.gif */; };
+		63EA6A281A7D96C400B20C4A /* gesture.html in Resources */ = {isa = PBXBuildFile; fileRef = 63EA6A271A7D96C400B20C4A /* gesture.html */; };
+		63EA6A2A1A7D975200B20C4A /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = 63EA6A291A7D975200B20C4A /* Notes */; };
 		63F38EE51A7D6BDE0062E3D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F38EE41A7D6BDE0062E3D8 /* AppDelegate.swift */; };
 		63F38EEA1A7D6BDE0062E3D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63F38EE81A7D6BDE0062E3D8 /* Main.storyboard */; };
 		63F38EEC1A7D6BDE0062E3D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63F38EEB1A7D6BDE0062E3D8 /* Images.xcassets */; };
@@ -38,6 +40,8 @@
 		63EA6A0B1A7D855100B20C4A /* SyncViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncViewController.swift; sourceTree = "<group>"; };
 		63EA6A0D1A7D855F00B20C4A /* ControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerViewController.swift; sourceTree = "<group>"; };
 		63EA6A1E1A7D92B400B20C4A /* Gesture-reference-gesture.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Gesture-reference-gesture.gif"; sourceTree = "<group>"; };
+		63EA6A271A7D96C400B20C4A /* gesture.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = gesture.html; sourceTree = "<group>"; };
+		63EA6A291A7D975200B20C4A /* Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
 		63F38EDF1A7D6BDE0062E3D8 /* MyoLeviathan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyoLeviathan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F38EE31A7D6BDE0062E3D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63F38EE41A7D6BDE0062E3D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,9 +118,11 @@
 		63F38EE21A7D6BDE0062E3D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				63EA6A1E1A7D92B400B20C4A /* Gesture-reference-gesture.gif */,
 				63F38F0D1A7D70200062E3D8 /* Bridging-Header.h */,
 				63F38EE31A7D6BDE0062E3D8 /* Info.plist */,
+				63EA6A271A7D96C400B20C4A /* gesture.html */,
+				63EA6A1E1A7D92B400B20C4A /* Gesture-reference-gesture.gif */,
+				63EA6A291A7D975200B20C4A /* Notes */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -250,7 +256,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63EA6A2A1A7D975200B20C4A /* Notes in Resources */,
 				63EA6A1F1A7D92B400B20C4A /* Gesture-reference-gesture.gif in Resources */,
+				63EA6A281A7D96C400B20C4A /* gesture.html in Resources */,
 				63F38EEA1A7D6BDE0062E3D8 /* Main.storyboard in Resources */,
 				63F38EEF1A7D6BDE0062E3D8 /* LaunchScreen.xib in Resources */,
 				63F38EEC1A7D6BDE0062E3D8 /* Images.xcassets in Resources */,

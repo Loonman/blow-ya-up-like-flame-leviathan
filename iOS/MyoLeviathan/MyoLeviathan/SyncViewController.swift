@@ -15,6 +15,10 @@ class SyncViewController: UIViewController {
 		super.viewDidLoad()
 		
 		self.navigationItem.hidesBackButton = true
+		
+		var url: NSURL! = NSBundle.mainBundle().URLForResource("gesture", withExtension: "html")
+		var request = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadRevalidatingCacheData, timeoutInterval: 30.0)
+		self.gifView?.loadRequest(request)
 	}
 	
 	var timer: Timer?
