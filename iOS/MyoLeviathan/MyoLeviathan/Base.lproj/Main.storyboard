@@ -54,16 +54,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the phone to the Myo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOn-pX-GLf">
-                                <rect key="frame" x="202" y="289" width="197" height="21"/>
+                                <rect key="frame" x="202" y="559" width="196.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="OGh-QW-gai"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flblog.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Mk-P2-8NQ">
+                                <rect key="frame" x="16" y="72" width="568" height="479"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="VOn-pX-GLf" secondAttribute="centerX" id="BWc-6V-HK2"/>
-                            <constraint firstAttribute="centerY" secondItem="VOn-pX-GLf" secondAttribute="centerY" id="Klj-op-ghn"/>
+                            <constraint firstItem="7Mk-P2-8NQ" firstAttribute="leading" secondItem="9hY-Vy-MO7" secondAttribute="leadingMargin" id="GaZ-WL-QrC"/>
+                            <constraint firstItem="7Mk-P2-8NQ" firstAttribute="trailing" secondItem="9hY-Vy-MO7" secondAttribute="trailingMargin" id="Myd-hv-NP4"/>
+                            <constraint firstItem="7Mk-P2-8NQ" firstAttribute="top" secondItem="giw-Ry-5Ey" secondAttribute="bottom" constant="8" id="NL5-qF-CQe"/>
+                            <constraint firstAttribute="centerX" secondItem="7Mk-P2-8NQ" secondAttribute="centerX" id="Ye1-yc-fXk"/>
+                            <constraint firstItem="IW8-Vn-2Pr" firstAttribute="top" secondItem="VOn-pX-GLf" secondAttribute="bottom" constant="20" id="fgX-qK-W08"/>
+                            <constraint firstItem="VOn-pX-GLf" firstAttribute="top" secondItem="7Mk-P2-8NQ" secondAttribute="bottom" constant="8" id="iEz-WT-9mn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Connect Myo" id="cZ4-EZ-jKb"/>
@@ -118,7 +129,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQV-7R-v5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2000" y="199"/>
+            <point key="canvasLocation" x="2001" y="147"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="flblog.png" width="279" height="200"/>
+    </resources>
 </document>

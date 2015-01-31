@@ -44,7 +44,7 @@ class MyoManager {
 			// TODO:
 		})
 		self.statusTimer?.schedule()
-		self.pollTimer = Timer(seconds: 0.1, repeats: true, closure: { () -> () in
+		self.pollTimer = Timer(seconds: 0.01, repeats: true, closure: { () -> () in
 			// TODO:
 		})
 		self.pollTimer?.schedule()
