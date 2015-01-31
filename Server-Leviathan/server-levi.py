@@ -14,7 +14,7 @@ motor2 = PORT_D
 BrickPi.MotorEnable[motor1] = 1
 BrickPi.MotorEnable[motor2] = 1
 BrickPiSetupSensors()
-BrickPi.Timeout = 10000
+BrickPi.Timeout = 100
 BrickPiSetTimeout()
 
 # Motor Ports (Referenced when view bot from behind)
@@ -48,6 +48,8 @@ while True:
         data = conn.recv(1024)
         if not data:
             break
+
+        data = json.loads(str(data.strip().decode("utf-8")))
         inp = str(raw_input())  # Take input from the terminal
         # Move the bot
         if inp == 'w':
@@ -70,25 +72,56 @@ while True:
     conn.close()
 speed = 255
 
+
+class Car(object):
+    """docstring for Car"""
+    def __init__(self, left, right, steer, aux):
+        super(Car, self).__init__()
+        self.left = left
+        self.right = right
+        self.steer = steer
+        self.aux = aux
+
+    def set_steering(self, percent):
+        pass
+
+    def set_speed(self, percent):
+        pass
+
+    def get_sensors(self, percent):
+        pass
+
+    def aux_motor(self, percent):
+        pass
+
+
 def fwd():
-    BrickPi.MotorSpeed[motor1] = speed  
-    BrickPi.MotorSpeed[motor2] = speed  
-#Move Left
+    # Move Left
+    BrickPi.MotorSpeed[motor1] = speed
+    BrickPi.MotorSpeed[motor2] = speed
+
+
 def left():
     motorRotateDegree([255], [20], [PORT_C])
-    BrickPi.MotorSpeed[motor1] = speed  
-    BrickPi.MotorSpeed[motor2] = -speed 
+    BrickPi.MotorSpeed[motor1] = speed
+    BrickPi.MotorSpeed[motor2] = -speed
     time.sleep(2)
     motorRotateDegree([255], [-20], [PORT_C])
-#Move Right
+
+
 def right():
-    BrickPi.MotorSpeed[motor1] = -speed  
+    # Move Right
+    BrickPi.MotorSpeed[motor1] = -speed
     BrickPi.MotorSpeed[motor2] = speed
-#Move backward
+
+
 def back():
-    BrickPi.MotorSpeed[motor1] = -speed  
+    # Move backward
+    BrickPi.MotorSpeed[motor1] = -speed
     BrickPi.MotorSpeed[motor2] = -speed
-#Stop
+
+
 def stop():
-    BrickPi.MotorSpeed[motor1] = 0  
+    # Stop
+    BrickPi.MotorSpeed[motor1] = 0
     BrickPi.MotorSpeed[motor2] = 0
