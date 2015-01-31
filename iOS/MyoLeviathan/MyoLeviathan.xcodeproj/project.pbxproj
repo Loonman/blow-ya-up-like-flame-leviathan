@@ -7,46 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		636A65E41A7D630A00774290 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636A65E31A7D630A00774290 /* AppDelegate.swift */; };
-		636A65E61A7D630A00774290 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636A65E51A7D630A00774290 /* ViewController.swift */; };
-		636A65E91A7D630A00774290 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636A65E71A7D630A00774290 /* Main.storyboard */; };
-		636A65EB1A7D630A00774290 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636A65EA1A7D630A00774290 /* Images.xcassets */; };
-		636A65EE1A7D630A00774290 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636A65EC1A7D630A00774290 /* LaunchScreen.xib */; };
-		636A65FA1A7D630A00774290 /* ControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636A65F91A7D630A00774290 /* ControllerTests.swift */; };
+		63F38EE51A7D6BDE0062E3D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F38EE41A7D6BDE0062E3D8 /* AppDelegate.swift */; };
+		63F38EE71A7D6BDE0062E3D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F38EE61A7D6BDE0062E3D8 /* ViewController.swift */; };
+		63F38EEA1A7D6BDE0062E3D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63F38EE81A7D6BDE0062E3D8 /* Main.storyboard */; };
+		63F38EEC1A7D6BDE0062E3D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63F38EEB1A7D6BDE0062E3D8 /* Images.xcassets */; };
+		63F38EEF1A7D6BDE0062E3D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F38EED1A7D6BDE0062E3D8 /* LaunchScreen.xib */; };
+		63F38EFB1A7D6BDE0062E3D8 /* MyoLeviathanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F38EFA1A7D6BDE0062E3D8 /* MyoLeviathanTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		636A65F41A7D630A00774290 /* PBXContainerItemProxy */ = {
+		63F38EF51A7D6BDE0062E3D8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 636A65D61A7D630A00774290 /* Project object */;
+			containerPortal = 63F38ED71A7D6BDE0062E3D8 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 636A65DD1A7D630A00774290;
-			remoteInfo = Controller;
+			remoteGlobalIDString = 63F38EDE1A7D6BDE0062E3D8;
+			remoteInfo = MyoLeviathan;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		636A65DE1A7D630A00774290 /* Controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Controller.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		636A65E21A7D630A00774290 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		636A65E31A7D630A00774290 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		636A65E51A7D630A00774290 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		636A65E81A7D630A00774290 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		636A65EA1A7D630A00774290 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		636A65ED1A7D630A00774290 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		636A65F31A7D630A00774290 /* ControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		636A65F81A7D630A00774290 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		636A65F91A7D630A00774290 /* ControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerTests.swift; sourceTree = "<group>"; };
+		63F38EDF1A7D6BDE0062E3D8 /* MyoLeviathan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyoLeviathan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63F38EE31A7D6BDE0062E3D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63F38EE41A7D6BDE0062E3D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		63F38EE61A7D6BDE0062E3D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		63F38EE91A7D6BDE0062E3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		63F38EEB1A7D6BDE0062E3D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		63F38EEE1A7D6BDE0062E3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		63F38EF41A7D6BDE0062E3D8 /* MyoLeviathanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyoLeviathanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		63F38EF91A7D6BDE0062E3D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63F38EFA1A7D6BDE0062E3D8 /* MyoLeviathanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyoLeviathanTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		636A65DB1A7D630A00774290 /* Frameworks */ = {
+		63F38EDC1A7D6BDE0062E3D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		636A65F01A7D630A00774290 /* Frameworks */ = {
+		63F38EF11A7D6BDE0062E3D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -56,58 +56,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		636A65D51A7D630A00774290 = {
+		63F38ED61A7D6BDE0062E3D8 = {
 			isa = PBXGroup;
 			children = (
-				636A65E01A7D630A00774290 /* Controller */,
-				636A65F61A7D630A00774290 /* ControllerTests */,
-				636A65DF1A7D630A00774290 /* Products */,
+				63F38EE11A7D6BDE0062E3D8 /* MyoLeviathan */,
+				63F38EF71A7D6BDE0062E3D8 /* MyoLeviathanTests */,
+				63F38EE01A7D6BDE0062E3D8 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		636A65DF1A7D630A00774290 /* Products */ = {
+		63F38EE01A7D6BDE0062E3D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				636A65DE1A7D630A00774290 /* Controller.app */,
-				636A65F31A7D630A00774290 /* ControllerTests.xctest */,
+				63F38EDF1A7D6BDE0062E3D8 /* MyoLeviathan.app */,
+				63F38EF41A7D6BDE0062E3D8 /* MyoLeviathanTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		636A65E01A7D630A00774290 /* Controller */ = {
+		63F38EE11A7D6BDE0062E3D8 /* MyoLeviathan */ = {
 			isa = PBXGroup;
 			children = (
-				636A65E31A7D630A00774290 /* AppDelegate.swift */,
-				636A65E51A7D630A00774290 /* ViewController.swift */,
-				636A65E71A7D630A00774290 /* Main.storyboard */,
-				636A65EA1A7D630A00774290 /* Images.xcassets */,
-				636A65EC1A7D630A00774290 /* LaunchScreen.xib */,
-				636A65E11A7D630A00774290 /* Supporting Files */,
+				63F38EE41A7D6BDE0062E3D8 /* AppDelegate.swift */,
+				63F38EE61A7D6BDE0062E3D8 /* ViewController.swift */,
+				63F38EE81A7D6BDE0062E3D8 /* Main.storyboard */,
+				63F38EEB1A7D6BDE0062E3D8 /* Images.xcassets */,
+				63F38EED1A7D6BDE0062E3D8 /* LaunchScreen.xib */,
+				63F38EE21A7D6BDE0062E3D8 /* Supporting Files */,
 			);
-			path = Controller;
+			path = MyoLeviathan;
 			sourceTree = "<group>";
 		};
-		636A65E11A7D630A00774290 /* Supporting Files */ = {
+		63F38EE21A7D6BDE0062E3D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				636A65E21A7D630A00774290 /* Info.plist */,
+				63F38EE31A7D6BDE0062E3D8 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		636A65F61A7D630A00774290 /* ControllerTests */ = {
+		63F38EF71A7D6BDE0062E3D8 /* MyoLeviathanTests */ = {
 			isa = PBXGroup;
 			children = (
-				636A65F91A7D630A00774290 /* ControllerTests.swift */,
-				636A65F71A7D630A00774290 /* Supporting Files */,
+				63F38EFA1A7D6BDE0062E3D8 /* MyoLeviathanTests.swift */,
+				63F38EF81A7D6BDE0062E3D8 /* Supporting Files */,
 			);
-			path = ControllerTests;
+			path = MyoLeviathanTests;
 			sourceTree = "<group>";
 		};
-		636A65F71A7D630A00774290 /* Supporting Files */ = {
+		63F38EF81A7D6BDE0062E3D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				636A65F81A7D630A00774290 /* Info.plist */,
+				63F38EF91A7D6BDE0062E3D8 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -115,60 +115,60 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		636A65DD1A7D630A00774290 /* Controller */ = {
+		63F38EDE1A7D6BDE0062E3D8 /* MyoLeviathan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 636A65FD1A7D630A00774290 /* Build configuration list for PBXNativeTarget "Controller" */;
+			buildConfigurationList = 63F38EFE1A7D6BDE0062E3D8 /* Build configuration list for PBXNativeTarget "MyoLeviathan" */;
 			buildPhases = (
-				636A65DA1A7D630A00774290 /* Sources */,
-				636A65DB1A7D630A00774290 /* Frameworks */,
-				636A65DC1A7D630A00774290 /* Resources */,
+				63F38EDB1A7D6BDE0062E3D8 /* Sources */,
+				63F38EDC1A7D6BDE0062E3D8 /* Frameworks */,
+				63F38EDD1A7D6BDE0062E3D8 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Controller;
-			productName = Controller;
-			productReference = 636A65DE1A7D630A00774290 /* Controller.app */;
+			name = MyoLeviathan;
+			productName = MyoLeviathan;
+			productReference = 63F38EDF1A7D6BDE0062E3D8 /* MyoLeviathan.app */;
 			productType = "com.apple.product-type.application";
 		};
-		636A65F21A7D630A00774290 /* ControllerTests */ = {
+		63F38EF31A7D6BDE0062E3D8 /* MyoLeviathanTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 636A66001A7D630A00774290 /* Build configuration list for PBXNativeTarget "ControllerTests" */;
+			buildConfigurationList = 63F38F011A7D6BDE0062E3D8 /* Build configuration list for PBXNativeTarget "MyoLeviathanTests" */;
 			buildPhases = (
-				636A65EF1A7D630A00774290 /* Sources */,
-				636A65F01A7D630A00774290 /* Frameworks */,
-				636A65F11A7D630A00774290 /* Resources */,
+				63F38EF01A7D6BDE0062E3D8 /* Sources */,
+				63F38EF11A7D6BDE0062E3D8 /* Frameworks */,
+				63F38EF21A7D6BDE0062E3D8 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				636A65F51A7D630A00774290 /* PBXTargetDependency */,
+				63F38EF61A7D6BDE0062E3D8 /* PBXTargetDependency */,
 			);
-			name = ControllerTests;
-			productName = ControllerTests;
-			productReference = 636A65F31A7D630A00774290 /* ControllerTests.xctest */;
+			name = MyoLeviathanTests;
+			productName = MyoLeviathanTests;
+			productReference = 63F38EF41A7D6BDE0062E3D8 /* MyoLeviathanTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		636A65D61A7D630A00774290 /* Project object */ = {
+		63F38ED71A7D6BDE0062E3D8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "1342435 ALBERTA LTD";
 				TargetAttributes = {
-					636A65DD1A7D630A00774290 = {
+					63F38EDE1A7D6BDE0062E3D8 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
-					636A65F21A7D630A00774290 = {
+					63F38EF31A7D6BDE0062E3D8 = {
 						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 636A65DD1A7D630A00774290;
+						TestTargetID = 63F38EDE1A7D6BDE0062E3D8;
 					};
 				};
 			};
-			buildConfigurationList = 636A65D91A7D630A00774290 /* Build configuration list for PBXProject "Controller" */;
+			buildConfigurationList = 63F38EDA1A7D6BDE0062E3D8 /* Build configuration list for PBXProject "MyoLeviathan" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -176,29 +176,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 636A65D51A7D630A00774290;
-			productRefGroup = 636A65DF1A7D630A00774290 /* Products */;
+			mainGroup = 63F38ED61A7D6BDE0062E3D8;
+			productRefGroup = 63F38EE01A7D6BDE0062E3D8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				636A65DD1A7D630A00774290 /* Controller */,
-				636A65F21A7D630A00774290 /* ControllerTests */,
+				63F38EDE1A7D6BDE0062E3D8 /* MyoLeviathan */,
+				63F38EF31A7D6BDE0062E3D8 /* MyoLeviathanTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		636A65DC1A7D630A00774290 /* Resources */ = {
+		63F38EDD1A7D6BDE0062E3D8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				636A65E91A7D630A00774290 /* Main.storyboard in Resources */,
-				636A65EE1A7D630A00774290 /* LaunchScreen.xib in Resources */,
-				636A65EB1A7D630A00774290 /* Images.xcassets in Resources */,
+				63F38EEA1A7D6BDE0062E3D8 /* Main.storyboard in Resources */,
+				63F38EEF1A7D6BDE0062E3D8 /* LaunchScreen.xib in Resources */,
+				63F38EEC1A7D6BDE0062E3D8 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		636A65F11A7D630A00774290 /* Resources */ = {
+		63F38EF21A7D6BDE0062E3D8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -208,46 +208,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		636A65DA1A7D630A00774290 /* Sources */ = {
+		63F38EDB1A7D6BDE0062E3D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				636A65E61A7D630A00774290 /* ViewController.swift in Sources */,
-				636A65E41A7D630A00774290 /* AppDelegate.swift in Sources */,
+				63F38EE71A7D6BDE0062E3D8 /* ViewController.swift in Sources */,
+				63F38EE51A7D6BDE0062E3D8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		636A65EF1A7D630A00774290 /* Sources */ = {
+		63F38EF01A7D6BDE0062E3D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				636A65FA1A7D630A00774290 /* ControllerTests.swift in Sources */,
+				63F38EFB1A7D6BDE0062E3D8 /* MyoLeviathanTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		636A65F51A7D630A00774290 /* PBXTargetDependency */ = {
+		63F38EF61A7D6BDE0062E3D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 636A65DD1A7D630A00774290 /* Controller */;
-			targetProxy = 636A65F41A7D630A00774290 /* PBXContainerItemProxy */;
+			target = 63F38EDE1A7D6BDE0062E3D8 /* MyoLeviathan */;
+			targetProxy = 63F38EF51A7D6BDE0062E3D8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		636A65E71A7D630A00774290 /* Main.storyboard */ = {
+		63F38EE81A7D6BDE0062E3D8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				636A65E81A7D630A00774290 /* Base */,
+				63F38EE91A7D6BDE0062E3D8 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		636A65EC1A7D630A00774290 /* LaunchScreen.xib */ = {
+		63F38EED1A7D6BDE0062E3D8 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				636A65ED1A7D630A00774290 /* Base */,
+				63F38EEE1A7D6BDE0062E3D8 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		636A65FB1A7D630A00774290 /* Debug */ = {
+		63F38EFC1A7D6BDE0062E3D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -298,7 +298,7 @@
 			};
 			name = Debug;
 		};
-		636A65FC1A7D630A00774290 /* Release */ = {
+		63F38EFD1A7D6BDE0062E3D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -334,27 +334,27 @@
 			};
 			name = Release;
 		};
-		636A65FE1A7D630A00774290 /* Debug */ = {
+		63F38EFF1A7D6BDE0062E3D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Controller/Info.plist;
+				INFOPLIST_FILE = MyoLeviathan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		636A65FF1A7D630A00774290 /* Release */ = {
+		63F38F001A7D6BDE0062E3D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Controller/Info.plist;
+				INFOPLIST_FILE = MyoLeviathan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
-		636A66011A7D630A00774290 /* Debug */ = {
+		63F38F021A7D6BDE0062E3D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -366,14 +366,14 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = ControllerTests/Info.plist;
+				INFOPLIST_FILE = MyoLeviathanTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Controller.app/Controller";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyoLeviathan.app/MyoLeviathan";
 			};
 			name = Debug;
 		};
-		636A66021A7D630A00774290 /* Release */ = {
+		63F38F031A7D6BDE0062E3D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -381,42 +381,42 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = ControllerTests/Info.plist;
+				INFOPLIST_FILE = MyoLeviathanTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Controller.app/Controller";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyoLeviathan.app/MyoLeviathan";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		636A65D91A7D630A00774290 /* Build configuration list for PBXProject "Controller" */ = {
+		63F38EDA1A7D6BDE0062E3D8 /* Build configuration list for PBXProject "MyoLeviathan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				636A65FB1A7D630A00774290 /* Debug */,
-				636A65FC1A7D630A00774290 /* Release */,
+				63F38EFC1A7D6BDE0062E3D8 /* Debug */,
+				63F38EFD1A7D6BDE0062E3D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		636A65FD1A7D630A00774290 /* Build configuration list for PBXNativeTarget "Controller" */ = {
+		63F38EFE1A7D6BDE0062E3D8 /* Build configuration list for PBXNativeTarget "MyoLeviathan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				636A65FE1A7D630A00774290 /* Debug */,
-				636A65FF1A7D630A00774290 /* Release */,
+				63F38EFF1A7D6BDE0062E3D8 /* Debug */,
+				63F38F001A7D6BDE0062E3D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		636A66001A7D630A00774290 /* Build configuration list for PBXNativeTarget "ControllerTests" */ = {
+		63F38F011A7D6BDE0062E3D8 /* Build configuration list for PBXNativeTarget "MyoLeviathanTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				636A66011A7D630A00774290 /* Debug */,
-				636A66021A7D630A00774290 /* Release */,
+				63F38F021A7D6BDE0062E3D8 /* Debug */,
+				63F38F031A7D6BDE0062E3D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 636A65D61A7D630A00774290 /* Project object */;
+	rootObject = 63F38ED71A7D6BDE0062E3D8 /* Project object */;
 }

@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Controller.xcscheme</key>
+		<key>MyoLeviathan.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>636A65DD1A7D630A00774290</key>
+		<key>63F38EDE1A7D6BDE0062E3D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>636A65F21A7D630A00774290</key>
+		<key>63F38EF31A7D6BDE0062E3D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

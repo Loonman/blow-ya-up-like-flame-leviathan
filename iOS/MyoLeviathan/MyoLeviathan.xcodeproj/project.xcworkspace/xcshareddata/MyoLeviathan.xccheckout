@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>712870E8-6401-4E6C-8976-3CA59E5479DF</string>
+	<string>C06300FB-01E3-4172-993F-1C6D15DC0C8F</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Controller</string>
+	<string>MyoLeviathan</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>04FBE741DCBB737C2436433350CB34A0B20F7387</key>
 		<string>https://github.com/Loonman/blow-ya-up-like-flame-leviathan.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iOS/Controller/Controller.xcodeproj</string>
+	<string>iOS/MyoLeviathan/MyoLeviathan.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>04FBE741DCBB737C2436433350CB34A0B20F7387</key>

@@ -1,6 +1,6 @@
 //
-//  ControllerTests.swift
-//  ControllerTests
+//  MyoLeviathanTests.swift
+//  MyoLeviathanTests
 //
 //  Created by David Skrundz on 2015-01-31.
 //  Copyright (c) 2015 1342435 ALBERTA LTD. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class ControllerTests: XCTestCase {
+class MyoLeviathanTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
