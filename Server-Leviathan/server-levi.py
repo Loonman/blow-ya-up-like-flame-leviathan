@@ -58,8 +58,8 @@ class Car(object):
             percent = 255
         if percent < -255:
             percent = -255
-        BrickPi.MotorSpeed[self.left] = percent
-        BrickPi.MotorSpeed[self.right] = percent
+        BrickPi.MotorSpeed[self.left] = -percent
+        BrickPi.MotorSpeed[self.right] = -percent
         BrickPiUpdateValues()
 
     def get_sensors(self, percent):
@@ -74,28 +74,27 @@ class Car(object):
         time.sleep(0.3)
         BrickPi.MotorSpeed[self.aux] = 0
         BrickPiUpdateValues()
-        time.sleep(0.3)
 
 car = Car(PORT_A, PORT_D, PORT_C, PORT_B)
 while True:
     try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     except socket.error as msg:
-        s = None
+        soc = None
         print "Cannot make socket"
         continue
     try:
-        s.bind((HOST, PORT))
-        s.listen(1)
+        soc.bind((HOST, PORT))
+        soc.listen(1)
     except socket.error as msg:
-        s.close()
-        s = None
+        soc.close()
+        soc = None
         print msg
         continue
-    if s is None:
+    if soc is None:
         print 'could not open socket'
         sys.exit(1)
-    conn, addr = s.accept()
+    conn, addr = soc.accept()
     print 'Connected by', addr
     while 1:
         data = conn.recv(1024)
@@ -110,8 +109,12 @@ while True:
             except (ValueError, TypeError):
                 print "Bad Parse"
                 continue
-            if "speed" in s:
+            if "speed" in s and s["speed"] != 0:
                 car.set_speed(s["speed"])
             if "steer" in s:
-                car.set_speed(s["steer"])
+                car.set_steering(s["steer"])
+            if "aux" in s and s["aux"]:
+                car.aux_motor()
     conn.close()
+    soc.close()
+    time.sleep(0.5)
