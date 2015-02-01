@@ -9,8 +9,11 @@
 import Foundation
 
 class Packets {
-	class func speedPacket(speed: Int) -> String {
-		let dict = ["speed" : max(-255, min(255, speed))]
+	class func packet(speed: Int, turn: Int, hammer: Bool) -> String {
+		var dict: [String : AnyObject] = [:]
+		dict["speed"] = min(255, max(-255, speed))
+		dict["steer"] = min(30, max(-30, turn))
+		dict["aux"] = hammer
 		var err: NSError?
 		return NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions.allZeros, error: &err)!.toString()!
 	}

@@ -26,7 +26,7 @@ class SyncViewController: UIViewController {
 	@IBOutlet var gifView: UIWebView?
 	
 	override func viewDidAppear(animated: Bool) {
-		self.timer = Timer(seconds: 0.1, repeats: true, closure: { [weak self] () -> () in
+		self.timer = Timer(seconds: 0.5, repeats: true, closure: { [weak self] () -> () in
 			self?.check()
 			return
 		})

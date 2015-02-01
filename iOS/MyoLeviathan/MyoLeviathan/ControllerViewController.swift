@@ -20,11 +20,28 @@ class ControllerViewController: UIViewController, ConnectionManagerDelegateProto
 		self.navigationItem.leftBarButtonItem = backButton
 		self.navigationItem.hidesBackButton = true
 		
-		self.connectionID = self.connectionManager.newConnection("192.168.1.100", port: 50_007, streamStyle: StreamFeed.Delimiter("\r\n"), delegate: self)
+		//self.connectionID = self.connectionManager.newConnection("192.168.1.100", port: 50_007, streamStyle: StreamFeed.Delimiter("\r\n"), delegate: self)
 		
-		self.timer = Timer(seconds: 0.1, repeats: true, closure: { () -> () in
-			if let orientation = (UIApplication.sharedApplication().delegate as AppDelegate).myoManager.myo?.orientation {
-				self.connectionManager.sendStringToConnection(self.connectionID, message: "\(Packets.speedPacket(Int(orientation.quaternion.x * 1000.0)))\n")
+		self.timer = Timer(seconds: 0.3, repeats: true, closure: { () -> () in
+			
+			if let myo = (UIApplication.sharedApplication().delegate as AppDelegate).myoManager.myo {
+				let angle = TLMEulerAngles(quaternion: myo.orientation.quaternion)
+				
+				let speed = Int(angle.pitch.degrees * 255 / 45)
+				let turn = Int(angle.roll.degrees * 30 / 45)
+				var hammer = false
+				if let pose = myo.pose {
+					println(pose.type)
+					if pose.type == TLMPoseType.Fist {
+						hammer = true
+					}
+				}
+				println("\(Packets.packet(speed, turn: turn, hammer: hammer))")
+//				self.connectionManager.sendStringToConnection(self.connectionID, message: "\(Packets.packet(speed, turn: turn, hammer: hammer))\r\n")
+			}
+			
+			if ((UIApplication.sharedApplication().delegate as AppDelegate).myoManager.myo?.state != TLMMyoConnectionState.Connected) {
+				self.disconnect()
 			}
 		})
 		self.timer?.schedule()
@@ -41,12 +58,13 @@ class ControllerViewController: UIViewController, ConnectionManagerDelegateProto
 		self.connectionManager.closeConnections()
 		(UIApplication.sharedApplication().delegate as AppDelegate).myoManager.disconnect()
 		self.navigationController?.popToRootViewControllerAnimated(true)
+		self.timer?.invalidate()
 	}
 	
 	// MARK: ConnectionManagerDelegateProtocol
 	
 	func connectionStarted(connectionID: String) {
-		
+		// All good
 	}
 	
 	func connectionError(connectionID: String, error: NSError) {
@@ -63,9 +81,5 @@ class ControllerViewController: UIViewController, ConnectionManagerDelegateProto
 		if let message = NSData(bytes: data, length: data.count).toString() {
 			// TODO:
 		}
-	}
-	
-	@IBAction func a() {
-		self.connectionManager.sendStringToConnection(self.connectionID, message: "\(Packets.speedPacket(255))")
 	}
 }
