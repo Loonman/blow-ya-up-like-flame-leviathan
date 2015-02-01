@@ -3,6 +3,8 @@ package me.boddez.flameleviathan;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.google.gson.Gson;
 
@@ -68,7 +70,7 @@ public class MainActivity extends Activity {
                     dict = toConvert;
                     Gson gson = new Gson();
                     String json = gson.toJson(dict);
-                    Log.d("writing:", json);
+                    Log.d("Writing:", json);
                     c.write(json + "\r\n");
                 }
                 catch (Exception e) {
@@ -92,6 +94,11 @@ public class MainActivity extends Activity {
         boolean setDirection = false; // forward vs backward
         boolean sortaIsActive = false;
         boolean reallyIsActive = false;
+        boolean hammer1IsActive = false;
+        boolean hammer2IsActive = false;
+        boolean strike1IsActive = false;
+        boolean strike2IsActive = false;
+        boolean hammer = false;
         youreAnIdiot = false;
 
         for (String word: words) {
@@ -238,8 +245,45 @@ public class MainActivity extends Activity {
                     }
                     break;
 
+                case "strike":
+                    strike1IsActive = true;
+                    break;
+
+                case "it's":
+                    hammer1IsActive = true;
+                    break;
+
+                case "the":
+                    strike2IsActive = strike1IsActive;
+                    break;
+
+                case "hammer":
+                    hammer2IsActive = hammer1IsActive;
+                    break;
+
+                case "earth":
+                    if(strike2IsActive) {
+                        hammer = true;
+                        newDict.put("speed", "0");
+                        Log.d("Logic: ","hammered");
+                    }
+                    break;
+
+                case "time":
+                    if (hammer2IsActive) {
+                        hammer = true;
+                        newDict.put("speed", "0");
+                        Log.d("Logic: ","hammered");
+                    }
+                    break;
             }
         }
+        if (hammer) {
+            newDict.put("aux", true);
+        } else {
+            newDict.put("aux", false);
+        }
+
         if (moveIsActive && !dontIsActive && !sentSpeed) {
             newDict.put("speed", "180");
             Log.d("Logic: ","set default speed");

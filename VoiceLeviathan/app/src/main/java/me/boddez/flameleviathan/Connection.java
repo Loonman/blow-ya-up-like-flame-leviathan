@@ -8,6 +8,9 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import com.google.gson.Gson;
 import android.app.Activity;
 import android.content.Context;
@@ -19,7 +22,7 @@ public class Connection extends Thread {
     private Socket socket;
     private DataOutputStream out;
 //    private BufferedReader in;
-    private String writeBuffer = "";
+    public String writeBuffer = "";
     public boolean connected = false;
 
     String host;
@@ -47,7 +50,7 @@ public class Connection extends Thread {
             while (connected) {
                 if (!this.writeBuffer.isEmpty()) {
                     try {
-                        byte[] bytes = this.writeBuffer.getBytes();
+                        byte[] bytes = this.writeBuffer.getBytes("UTF-8");
                         out.writeInt(bytes.length);
                         out.write(bytes);
                         out.flush();
@@ -65,7 +68,8 @@ public class Connection extends Thread {
     }
 
     public void write(String toWrite) {
-        this.writeBuffer += toWrite;
+        Timer timer = new Timer();
+        timer.schedule(new SendTask(this, toWrite), 0, 300);
     }
 
     public void disconnect() {
