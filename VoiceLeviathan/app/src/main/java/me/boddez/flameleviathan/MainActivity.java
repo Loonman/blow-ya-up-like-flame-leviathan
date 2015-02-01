@@ -3,8 +3,6 @@ package me.boddez.flameleviathan;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import com.google.gson.Gson;
 
@@ -12,7 +10,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.app.Activity;
-import android.content.Context;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,10 +48,6 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void sendw(View v) {
-        this.c.write("w\n");
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // this is where the app will send stuff to the robot
@@ -68,10 +61,11 @@ public class MainActivity extends Activity {
             } else {
                 try {
                     dict = toConvert;
+                    Object speed = dict.get("speed");
                     Gson gson = new Gson();
                     String json = gson.toJson(dict);
-                    Log.d("Writing:", json);
-                    c.write(json + "\r\n");
+                    Log.d("Writing: ", json);
+                    c.write(json + "\r\n", speed);
                 }
                 catch (Exception e) {
                     // lol
@@ -81,6 +75,7 @@ public class MainActivity extends Activity {
     }
 
     private Map<String, Object> makeSense(ArrayList<String> received) {
+
         Map<String, Object> newDict = new HashMap<String, Object>(dict);
         String[] words = received.get(0).split("\\s+");
 

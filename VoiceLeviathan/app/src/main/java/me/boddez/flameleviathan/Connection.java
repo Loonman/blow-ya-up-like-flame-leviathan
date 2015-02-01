@@ -24,6 +24,7 @@ public class Connection extends Thread {
 //    private BufferedReader in;
     public String writeBuffer = "";
     public boolean connected = false;
+    private Timer timer;
 
     String host;
     int port;
@@ -42,6 +43,8 @@ public class Connection extends Thread {
                 this.socket = new Socket(host, port);
                 this.out = new DataOutputStream(this.socket.getOutputStream());
                 connected = true;
+
+                timer = new Timer();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,15 +64,24 @@ public class Connection extends Thread {
                     }
                 }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void write(String toWrite) {
-        Timer timer = new Timer();
-        timer.schedule(new SendTask(this, toWrite), 0, 300);
+    public void write(String toWrite, Object speed) {
+        if (speed == null || ((String)speed).equals("0")) {
+            // do it once
+            Log.d("Write: ", "doing it once");
+            timer.cancel();
+            this.writeBuffer += toWrite;
+        } else {
+            // do it lots of times
+            Log.d("Write: ", "doing it lots of times");
+            timer.cancel();
+            timer = new Timer();
+            timer.schedule(new SendTask(this, toWrite), 0, 250);
+        }
     }
 
     public void disconnect() {
