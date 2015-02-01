@@ -33,13 +33,15 @@ class Car(object):
         BrickPiSetup()
 
         # Setup Motors
-        BrickPi.MotorEnable[left] = 1
-        BrickPi.MotorEnable[right] = 1
-        BrickPi.MotorEnable[aux] = 1
-        BrickPi.MotorEnable[steer] = 1
-
+        BrickPi.MotorEnable[left] = TYPE_MOTOR_SPEED
+        BrickPi.MotorEnable[right] = TYPE_MOTOR_SPEED
+        BrickPi.MotorEnable[aux] = TYPE_MOTOR_SPEED
+        BrickPi.MotorEnable[steer] = TYPE_MOTOR_POSITION
+        BrickPi.SensorType[PORT_2] = TYPE_SENSOR_LIGHT_ON
+        BrickPi.SensorType[PORT_3] = TYPE_SENSOR_ULTRASONIC_CONT
+        BrickPi.SensorType[PORT_4] = TYPE_SENSOR_LIGHT_ON
         BrickPiSetupSensors()
-        BrickPi.Timeout = 100
+        BrickPi.Timeout = 300
         BrickPiSetTimeout()
 
     def set_steering(self, percent):
@@ -99,23 +101,17 @@ while True:
         data = conn.recv(1024)
         if not data:
             break
+        data = data.strip().decode("utf-8").split("\r\n")
+        for s in data:
+            try:
+                s = json.loads(s)
+                print s
 
-        data = str(data.strip().decode("utf-8"))
-        print data
-        try:
-            data = json.loads(data)
-        except (ValueError, TypeError):
-            print "Bad Parse"
-        # Move the bot
-
-        if data == 'w':
-            car.set_speed(255)
-        elif data == 'a':
-            left()
-        elif data == 'd':
-            right()
-        elif data == 's':
-            back()
-        time.sleep(.01)         # sleep for 10 ms
-        conn.send("")
+            except (ValueError, TypeError):
+                print "Bad Parse"
+                continue
+            if "speed" in s:
+                car.set_speed(s["speed"])
+            if "steer" in s:
+                car.set_speed(s["steer"])
     conn.close()
