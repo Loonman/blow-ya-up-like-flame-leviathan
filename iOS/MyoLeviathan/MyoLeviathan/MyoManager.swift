@@ -40,13 +40,6 @@ class MyoManager {
 	
 	func initializeTimers() {
 		self.invalidateTimers()
-		self.statusTimer = Timer(seconds: 5.0, repeats: true, closure: { () -> () in
-			// TODO:
-		})
-		self.statusTimer?.schedule()
-		self.pollTimer = Timer(seconds: 0.01, repeats: true, closure: { () -> () in
-			// TODO:
-		})
 		self.pollTimer?.schedule()
 	}
 	

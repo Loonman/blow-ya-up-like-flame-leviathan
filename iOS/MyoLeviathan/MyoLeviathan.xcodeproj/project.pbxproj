@@ -41,6 +41,7 @@
 		63FCF1D81A7D9AF900571873 /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCF1D41A7D9AF900571873 /* Packet.swift */; };
 		63FCF1D91A7D9AF900571873 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCF1D51A7D9AF900571873 /* Reachability.swift */; };
 		63FCF1DB1A7D9F0F00571873 /* flblog.png in Resources */ = {isa = PBXBuildFile; fileRef = 63FCF1DA1A7D9F0F00571873 /* flblog.png */; };
+		63FCF1DD1A7DD42900571873 /* Packets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCF1DC1A7DD42900571873 /* Packets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		63FCF1D41A7D9AF900571873 /* Packet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Packet.swift; sourceTree = "<group>"; };
 		63FCF1D51A7D9AF900571873 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		63FCF1DA1A7D9F0F00571873 /* flblog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flblog.png; sourceTree = "<group>"; };
+		63FCF1DC1A7DD42900571873 /* Packets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Packets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				63EA6A091A7D854200B20C4A /* ConnectViewController.swift */,
 				63EA6A0B1A7D855100B20C4A /* SyncViewController.swift */,
 				63EA6A0D1A7D855F00B20C4A /* ControllerViewController.swift */,
+				63FCF1DC1A7DD42900571873 /* Packets.swift */,
 				63F38EE81A7D6BDE0062E3D8 /* Main.storyboard */,
 				63F38EEB1A7D6BDE0062E3D8 /* Images.xcassets */,
 				63F38EED1A7D6BDE0062E3D8 /* LaunchScreen.xib */,
@@ -361,6 +364,7 @@
 				63FCF1CA1A7D9ADF00571873 /* ColorExtension.swift in Sources */,
 				63FCF1B91A7D9ACE00571873 /* Regex.swift in Sources */,
 				63FCF1D71A7D9AF900571873 /* ConnectionManager.swift in Sources */,
+				63FCF1DD1A7DD42900571873 /* Packets.swift in Sources */,
 				63EA6A0A1A7D854200B20C4A /* ConnectViewController.swift in Sources */,
 				63FCF1CC1A7D9ADF00571873 /* NSDataExtension.swift in Sources */,
 				63FCF1BA1A7D9ACE00571873 /* Singleton.swift in Sources */,

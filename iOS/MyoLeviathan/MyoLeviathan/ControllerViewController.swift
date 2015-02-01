@@ -11,6 +11,8 @@ import UIKit
 class ControllerViewController: UIViewController, ConnectionManagerDelegateProtocol {
     override func didReceiveMemoryWarning() { super.didReceiveMemoryWarning() }
 	
+	var timer: Timer?
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -18,17 +20,25 @@ class ControllerViewController: UIViewController, ConnectionManagerDelegateProto
 		self.navigationItem.leftBarButtonItem = backButton
 		self.navigationItem.hidesBackButton = true
 		
-		self.connectionManager.newConnection("192.168.1.100", port: 50_007, streamStyle: StreamFeed.Delimiter("\r\n"), delegate: self)
+		self.connectionID = self.connectionManager.newConnection("192.168.1.100", port: 50_007, streamStyle: StreamFeed.Delimiter("\r\n"), delegate: self)
+		
+		self.timer = Timer(seconds: 0.1, repeats: true, closure: { () -> () in
+			if let orientation = (UIApplication.sharedApplication().delegate as AppDelegate).myoManager.myo?.orientation {
+				self.connectionManager.sendStringToConnection(self.connectionID, message: "\(Packets.speedPacket(Int(orientation.quaternion.x * 1000.0)))\n")
+			}
+		})
+		self.timer?.schedule()
 	}
 	
 	let connectionManager = ConnectionManager()
+	var connectionID: String!
 	
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
-		//
 	}
 	
 	@objc func disconnect() {
+		self.connectionManager.closeConnections()
 		(UIApplication.sharedApplication().delegate as AppDelegate).myoManager.disconnect()
 		self.navigationController?.popToRootViewControllerAnimated(true)
 	}
@@ -40,12 +50,12 @@ class ControllerViewController: UIViewController, ConnectionManagerDelegateProto
 	}
 	
 	func connectionError(connectionID: String, error: NSError) {
-		UIAlertView(title: "Connection Error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
+		UIAlertView(title: "Connection Error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK").show()
 		self.disconnect()
 	}
 	
 	func connectionEnded(connectionID: String) {
-		UIAlertView(title: "Connection Error", message: "Connection terminated by host", delegate: nil, cancelButtonTitle: "OK")
+		UIAlertView(title: "Connection Error", message: "Connection terminated by host", delegate: nil, cancelButtonTitle: "OK").show()
 		self.disconnect()
 	}
 	
@@ -53,5 +63,9 @@ class ControllerViewController: UIViewController, ConnectionManagerDelegateProto
 		if let message = NSData(bytes: data, length: data.count).toString() {
 			// TODO:
 		}
+	}
+	
+	@IBAction func a() {
+		self.connectionManager.sendStringToConnection(self.connectionID, message: "\(Packets.speedPacket(255))")
 	}
 }
