@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
+    // GOSH
+
     public static TextView connectedView;
     public boolean youreAnIdiot; // this should always be public
     private Map<String, Object> dict;
