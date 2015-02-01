@@ -8,23 +8,15 @@ import time
 HOST = "192.168.1.100"
 PORT = 50007
 s = None
-BrickPiSetup()
-motor1 = PORT_A
-motor2 = PORT_D
-BrickPi.MotorEnable[motor1] = 1
-BrickPi.MotorEnable[motor2] = 1
-BrickPiSetupSensors()
-BrickPi.Timeout = 100
-BrickPiSetTimeout()
 
 # Motor Ports (Referenced when view bot from behind)
-# Left Drive Wheel PORT_A
+# Left Drive Wheel  PORT_A
 # Right Drive Wheel PORT_D
-# Steering Motor PORT_C [-20, 20] deg
-# Hammer Motor PORT_B
+# Steering Motor    PORT_C [-20, 20] deg
+# Hammer Motor      PORT_B
 
 # Drive motors are geared in revers (ie -speed is forwards)
-
+car = new Car(PORT_A, PORT_D, PORT_C, PORT_B)
 while True:
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -50,27 +42,18 @@ while True:
             break
 
         data = json.loads(str(data.strip().decode("utf-8")))
-        inp = str(raw_input())  # Take input from the terminal
         # Move the bot
-        if inp == 'w':
-            fwd()
-        elif inp == 'a':
+        if data == 'w':
+            car.set_speed(255)
+        elif data == 'a':
             left()
-        elif inp == 'd':
+        elif data == 'd':
             right()
-        elif inp == 's':
+        elif data == 's':
             back()
-        elif inp == 'x':
-            stop()
-        elif inp == 'p':
-            poll()
-
-        BrickPiUpdateValues()   # Update the motor values
-
         time.sleep(.01)         # sleep for 10 ms
-        conn.send(data)
+        conn.send("")
     conn.close()
-speed = 255
 
 
 class Car(object):
@@ -81,47 +64,48 @@ class Car(object):
         self.right = right
         self.steer = steer
         self.aux = aux
+        self.steer_deg = 0
+
+        BrickPiSetup()
+
+        # Setup Motors
+        BrickPi.MotorEnable[left] = 1
+        BrickPi.MotorEnable[right] = 1
+        BrickPi.MotorEnable[aux] = 1
+        BrickPi.MotorEnable[steer] = 1
+
+        BrickPiSetupSensors()
+        BrickPi.Timeout = 100
+        BrickPiSetTimeout()
 
     def set_steering(self, percent):
-        pass
+        if percent > 30:
+            percent = 30
+        if percent < -30:
+            percent = -30
+        motorRotateDegree([150], [percent - self.steer_deg], [PORT_C])
+        self.steer_deg = percent
+        BrickPiUpdateValues()
 
     def set_speed(self, percent):
-        pass
+        if percent > 255:
+            percent = 255
+        if percent < -255:
+            percent = -255
+        BrickPi.MotorSpeed[self.left] = percent
+        BrickPi.MotorSpeed[self.right] = percent
+        BrickPiUpdateValues()
 
     def get_sensors(self, percent):
         pass
 
-    def aux_motor(self, percent):
-        pass
-
-
-def fwd():
-    # Move Left
-    BrickPi.MotorSpeed[motor1] = speed
-    BrickPi.MotorSpeed[motor2] = speed
-
-
-def left():
-    motorRotateDegree([255], [20], [PORT_C])
-    BrickPi.MotorSpeed[motor1] = speed
-    BrickPi.MotorSpeed[motor2] = -speed
-    time.sleep(2)
-    motorRotateDegree([255], [-20], [PORT_C])
-
-
-def right():
-    # Move Right
-    BrickPi.MotorSpeed[motor1] = -speed
-    BrickPi.MotorSpeed[motor2] = speed
-
-
-def back():
-    # Move backward
-    BrickPi.MotorSpeed[motor1] = -speed
-    BrickPi.MotorSpeed[motor2] = -speed
-
-
-def stop():
-    # Stop
-    BrickPi.MotorSpeed[motor1] = 0
-    BrickPi.MotorSpeed[motor2] = 0
+    def aux_motor(self):
+        BrickPi.MotorSpeed[self.aux] = 255
+        BrickPiUpdateValues()
+        time.sleep(0.3)
+        BrickPi.MotorSpeed[self.aux] = -255
+        BrickPiUpdateValues()
+        time.sleep(0.3)
+        BrickPi.MotorSpeed[self.aux] = 0
+        BrickPiUpdateValues()
+        time.sleep(0.3)
