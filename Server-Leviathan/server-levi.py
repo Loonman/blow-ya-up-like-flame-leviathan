@@ -16,44 +16,6 @@ s = None
 # Hammer Motor      PORT_B
 
 # Drive motors are geared in revers (ie -speed is forwards)
-car = new Car(PORT_A, PORT_D, PORT_C, PORT_B)
-while True:
-    try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    except socket.error as msg:
-        s = None
-        print "Cannot make socket"
-        continue
-    try:
-        s.bind((HOST, PORT))
-        s.listen(1)
-    except socket.error as msg:
-        s.close()
-        s = None
-        continue
-    if s is None:
-        print 'could not open socket'
-        sys.exit(1)
-    conn, addr = s.accept()
-    print 'Connected by', addr
-    while 1:
-        data = conn.recv(1024)
-        if not data:
-            break
-
-        data = json.loads(str(data.strip().decode("utf-8")))
-        # Move the bot
-        if data == 'w':
-            car.set_speed(255)
-        elif data == 'a':
-            left()
-        elif data == 'd':
-            right()
-        elif data == 's':
-            back()
-        time.sleep(.01)         # sleep for 10 ms
-        conn.send("")
-    conn.close()
 
 
 class Car(object):
@@ -109,3 +71,42 @@ class Car(object):
         BrickPi.MotorSpeed[self.aux] = 0
         BrickPiUpdateValues()
         time.sleep(0.3)
+
+car = Car(PORT_A, PORT_D, PORT_C, PORT_B)
+while True:
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    except socket.error as msg:
+        s = None
+        print "Cannot make socket"
+        continue
+    try:
+        s.bind((HOST, PORT))
+        s.listen(1)
+    except socket.error as msg:
+        s.close()
+        s = None
+        continue
+    if s is None:
+        print 'could not open socket'
+        sys.exit(1)
+    conn, addr = s.accept()
+    print 'Connected by', addr
+    while 1:
+        data = conn.recv(1024)
+        if not data:
+            break
+
+        data = str(data.strip().decode("utf-8"))
+        # Move the bot
+        if data == 'w':
+            car.set_speed(255)
+        elif data == 'a':
+            left()
+        elif data == 'd':
+            right()
+        elif data == 's':
+            back()
+        time.sleep(.01)         # sleep for 10 ms
+        conn.send("")
+    conn.close()
