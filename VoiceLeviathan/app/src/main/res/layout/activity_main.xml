@@ -11,7 +11,8 @@
         android:text="@string/speak_button"
         android:id="@+id/button"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="speak" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -20,12 +21,30 @@
         android:src="@drawable/flblog"
         android:layout_above="@+id/button"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="24dp"
+        android:onClick="connect" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/received_speech"
-        android:layout_below="@+id/button" />
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="w"
+        android:id="@+id/button2"
+        android:layout_alignTop="@+id/received_speech"
+        android:layout_centerHorizontal="true"
+        android:onClick="sendw" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/connectedView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
