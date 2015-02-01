@@ -101,18 +101,17 @@ while True:
         data = conn.recv(1024)
         if not data:
             break
-        data = data.strip().decode("utf-8").split("\r\n")
+        data = data.decode("utf-8").strip().replace("\x00", "").replace("(", "").split("\r\n")
+        print repr(data)
         for s in data:
             try:
                 s = json.loads(s)
-                print s
 
             except (ValueError, TypeError):
                 print "Bad Parse"
                 continue
             if "speed" in s and int(s["speed"]) != 0:
-                print s["speed"]
-                car.set_speed(s["speed"])
+                car.set_speed(int(s["speed"]))
             if "steer" in s:
                 car.set_steering(s["steer"])
             if "aux" in s and s["aux"]:
