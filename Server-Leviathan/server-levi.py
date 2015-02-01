@@ -4,6 +4,7 @@ import sys
 from BrickPi import *
 import threading
 import time
+import json
 
 HOST = "192.168.1.100"
 PORT = 50007
@@ -16,6 +17,7 @@ s = None
 # Hammer Motor      PORT_B
 
 # Drive motors are geared in revers (ie -speed is forwards)
+# {"speed":200, "steer": 20, "aux":true}
 
 
 class Car(object):
@@ -86,6 +88,7 @@ while True:
     except socket.error as msg:
         s.close()
         s = None
+        print msg
         continue
     if s is None:
         print 'could not open socket'
@@ -98,7 +101,13 @@ while True:
             break
 
         data = str(data.strip().decode("utf-8"))
+        print data
+        try:
+            data = json.loads(data)
+        except (ValueError, TypeError):
+            print "Bad Parse"
         # Move the bot
+
         if data == 'w':
             car.set_speed(255)
         elif data == 'a':
