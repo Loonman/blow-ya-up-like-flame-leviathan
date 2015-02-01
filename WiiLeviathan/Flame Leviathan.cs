@@ -100,20 +100,18 @@ namespace WiiLeviathanNowWithFlameLeviathan
                         //This should be Backwards
                         speed = Math.Max(Convert.ToInt32(Math.Floor(getY(wiimote) - 3) * 255 / 12), -255);
                     }
+                    //This should be left
                     if (getX(wiimote) > (xCal + 1))
                     {
                         turn = Math.Max(Convert.ToInt32(Math.Floor((getX(wiimote) - 3) * 20 / 12)), -20);
                     }
+                    //This should be right
                     if (getX(wiimote) < (xCal - 1))
                     {
                         turn = Math.Min(Convert.ToInt32(Math.Ceiling((getX(wiimote) + 3) * 20 / 12)), 20);
                     }
-                    Console.Write("X: ");
-                    Console.WriteLine(turn.ToString());
-                    Console.Write("Y: ");
-                    Console.WriteLine(speed.ToString());
                     
-
+                    //Make dictionary of speed, steer and aux
                     Dictionary<string, object> dick = new Dictionary<string, object>();
                     dick.Add("speed", speed);
                     dick.Add("steer", turn);
@@ -151,16 +149,18 @@ namespace WiiLeviathanNowWithFlameLeviathan
             
         }
 
-
+        //Initialize the new thread
         leviathanserver oServer = new leviathanserver();
         Thread oThread; 
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Start a new thread
             oThread = new Thread(new ThreadStart(oServer.WiiLeviathanServer));
             oThread.Start();
             while (!oThread.IsAlive);
             Thread.Sleep(1);
+            //Deal with exceptions by removing the button and exceptions ;)
             button1.Hide();
 
         }
