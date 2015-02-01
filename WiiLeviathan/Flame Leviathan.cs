@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using System.Net.Sockets;
 using System.Net;
 using System.Threading;
+using System.Diagnostics;
 
 namespace WiiLeviathanNowWithFlameLeviathan
 {
@@ -35,11 +36,14 @@ namespace WiiLeviathanNowWithFlameLeviathan
 		{
 			return wiimote.WiimoteState.BalanceBoardState.CenterOfGravity.Y;
 		}
+
         public class leviathanserver
         {
+            Socket socket;
+            Wiimote wiimote;
             public void WiiLeviathanServer()
             {
-                Wiimote wiimote = new Wiimote();
+                wiimote = new Wiimote();
                 wiimote.Connect();
                 wiimote.SetReportType(InputReport.IRAccel, true);
                 wiimote.SetLEDs(true, true, true, true);
@@ -61,7 +65,7 @@ namespace WiiLeviathanNowWithFlameLeviathan
                 Console.Write("Ycal: ");
                 Console.WriteLine(yCal.ToString());
 
-                Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
                 //This works allegedly.... 
                 byte[] byteaddress = new byte[] { 192, 168, 1, 100 };
@@ -93,12 +97,12 @@ namespace WiiLeviathanNowWithFlameLeviathan
                     if (getY(wiimote) < (yCal - 1))
                     {
                         //This should be forward
-                        speed = Math.Min(Convert.ToInt32(Math.Ceiling(getY(wiimote) + 3) * 255 / 12), 255);
+                        speed = Math.Min(Convert.ToInt32(Math.Ceiling(getY(wiimote) + 3) * 255 / -12), 255);
                     }
                     if (getY(wiimote) > (yCal + 1))
                     {
                         //This should be Backwards
-                        speed = Math.Max(Convert.ToInt32(Math.Floor(getY(wiimote) - 3) * 255 / 12), -255);
+                        speed = Math.Max(Convert.ToInt32(Math.Floor(getY(wiimote) - 3) * 255 / -12), -255);
                     }
                     //This should be left
                     if (getX(wiimote) > (xCal + 1))
@@ -124,6 +128,19 @@ namespace WiiLeviathanNowWithFlameLeviathan
                     socket.Send(data);
                     System.Threading.Thread.Sleep(250);
                 }
+
+            }
+            public void closeSock()
+            {
+                socket.Close();
+            }
+            public void closeWiimote()
+            {
+                wiimote.Disconnect();
+            }
+            public void Kill()
+            {
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
             }
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -139,19 +156,20 @@ namespace WiiLeviathanNowWithFlameLeviathan
         {
 
         }
-
-        private void Form1_closeClick(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
-            oThread.Abort();
-            
-            Application.Exit();
-            
-        }
-
         //Initialize the new thread
         leviathanserver oServer = new leviathanserver();
         Thread oThread; 
+
+        private void Form1_closeClick(object sender, FormClosedEventArgs e)
+        {
+            oServer.closeWiimote();
+            oServer.closeSock();
+            oThread.Abort();
+            Application.ExitThread();
+
+            
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
