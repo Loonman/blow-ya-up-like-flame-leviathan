@@ -12,6 +12,12 @@ class ControllerViewController: UIViewController, ConnectionManagerDelegateProto
     override func didReceiveMemoryWarning() { super.didReceiveMemoryWarning() }
 	
 	var timer: Timer?
+	var timer2: Timer?
+	var shouldHammer = true
+	
+	@IBOutlet var punchView: UIView?
+	@IBOutlet var dotView: UIView?
+	@IBOutlet var arrowView: UIView?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -20,24 +26,41 @@ class ControllerViewController: UIViewController, ConnectionManagerDelegateProto
 		self.navigationItem.leftBarButtonItem = backButton
 		self.navigationItem.hidesBackButton = true
 		
-		//self.connectionID = self.connectionManager.newConnection("192.168.1.100", port: 50_007, streamStyle: StreamFeed.Delimiter("\r\n"), delegate: self)
+		self.connectionID = self.connectionManager.newConnection("192.168.1.100", port: 50_007, streamStyle: StreamFeed.Delimiter("\r\n"), delegate: self)
+		if let myo = (UIApplication.sharedApplication().delegate as AppDelegate).myoManager.myo {
+			myo.unlockWithType(TLMUnlockType.Hold)
+		}
 		
-		self.timer = Timer(seconds: 0.3, repeats: true, closure: { () -> () in
+		self.timer2 = Timer(seconds: 0.1, repeats: true, closure: { () -> () in
+			if let myo = (UIApplication.sharedApplication().delegate as AppDelegate).myoManager.myo {
+				let angle = TLMEulerAngles(quaternion: myo.orientation.quaternion)
+				
+				self.arrowView?.transform = CGAffineTransformMakeScale(1.0, CGFloat(angle.pitch.radians) * -1.5)
+				self.dotView?.transform = CGAffineTransformMakeRotation(CGFloat(angle.roll.radians * 2.0))
+			}
+		})
+		
+		self.timer = Timer(seconds: 0.4, repeats: true, closure: { () -> () in
 			
 			if let myo = (UIApplication.sharedApplication().delegate as AppDelegate).myoManager.myo {
 				let angle = TLMEulerAngles(quaternion: myo.orientation.quaternion)
 				
-				let speed = Int(angle.pitch.degrees * 255 / 45)
-				let turn = Int(angle.roll.degrees * 30 / 45)
+				let speed = max(-255, min(255, Int(angle.pitch.degrees * 255 / 45)))
+				let turn = max(-20, min(20, Int(angle.roll.degrees * 30 / 20)))
 				var hammer = false
 				if let pose = myo.pose {
-					println(pose.type)
 					if pose.type == TLMPoseType.Fist {
-						hammer = true
+						if self.shouldHammer {
+							hammer = true
+							self.self.shouldHammer = false
+							self.punchView?.hidden = false
+						}
+					} else {
+						self.shouldHammer = true
+						self.punchView?.hidden = true
 					}
 				}
-				println("\(Packets.packet(speed, turn: turn, hammer: hammer))")
-//				self.connectionManager.sendStringToConnection(self.connectionID, message: "\(Packets.packet(speed, turn: turn, hammer: hammer))\r\n")
+				self.connectionManager.sendStringToConnection(self.connectionID, message: "\(Packets.packet(speed, turn: turn, hammer: hammer))\r\n")
 			}
 			
 			if ((UIApplication.sharedApplication().delegate as AppDelegate).myoManager.myo?.state != TLMMyoConnectionState.Connected) {
@@ -45,6 +68,7 @@ class ControllerViewController: UIViewController, ConnectionManagerDelegateProto
 			}
 		})
 		self.timer?.schedule()
+		self.timer2?.schedule()
 	}
 	
 	let connectionManager = ConnectionManager()

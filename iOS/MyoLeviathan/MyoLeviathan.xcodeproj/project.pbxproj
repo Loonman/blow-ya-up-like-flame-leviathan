@@ -42,6 +42,13 @@
 		63FCF1D91A7D9AF900571873 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCF1D51A7D9AF900571873 /* Reachability.swift */; };
 		63FCF1DB1A7D9F0F00571873 /* flblog.png in Resources */ = {isa = PBXBuildFile; fileRef = 63FCF1DA1A7D9F0F00571873 /* flblog.png */; };
 		63FCF1DD1A7DD42900571873 /* Packets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCF1DC1A7DD42900571873 /* Packets.swift */; };
+		63FCF1DF1A7E1A8C00571873 /* clenched_fist-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 63FCF1DE1A7E1A8C00571873 /* clenched_fist-48.png */; };
+		63FCF1E61A7E20C300571873 /* ClockMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCF1E11A7E20C300571873 /* ClockMath.swift */; };
+		63FCF1E71A7E20C300571873 /* MatrixMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCF1E21A7E20C300571873 /* MatrixMath.swift */; };
+		63FCF1E81A7E20C300571873 /* SequnceGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCF1E31A7E20C300571873 /* SequnceGenerators.swift */; };
+		63FCF1E91A7E20C300571873 /* SwiftMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCF1E41A7E20C300571873 /* SwiftMath.swift */; };
+		63FCF1EA1A7E20C300571873 /* VectorMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCF1E51A7E20C300571873 /* VectorMath.swift */; };
+		63FCF1ED1A7E20CE00571873 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FCF1EB1A7E20CE00571873 /* DoubleExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +102,13 @@
 		63FCF1D51A7D9AF900571873 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		63FCF1DA1A7D9F0F00571873 /* flblog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flblog.png; sourceTree = "<group>"; };
 		63FCF1DC1A7DD42900571873 /* Packets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Packets.swift; sourceTree = "<group>"; };
+		63FCF1DE1A7E1A8C00571873 /* clenched_fist-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clenched_fist-48.png"; sourceTree = "<group>"; };
+		63FCF1E11A7E20C300571873 /* ClockMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockMath.swift; sourceTree = "<group>"; };
+		63FCF1E21A7E20C300571873 /* MatrixMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixMath.swift; sourceTree = "<group>"; };
+		63FCF1E31A7E20C300571873 /* SequnceGenerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequnceGenerators.swift; sourceTree = "<group>"; };
+		63FCF1E41A7E20C300571873 /* SwiftMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMath.swift; sourceTree = "<group>"; };
+		63FCF1E51A7E20C300571873 /* VectorMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorMath.swift; sourceTree = "<group>"; };
+		63FCF1EB1A7E20CE00571873 /* DoubleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +171,7 @@
 		63F38EE21A7D6BDE0062E3D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				63FCF1DE1A7E1A8C00571873 /* clenched_fist-48.png */,
 				63FCF1DA1A7D9F0F00571873 /* flblog.png */,
 				63F38F0D1A7D70200062E3D8 /* Bridging-Header.h */,
 				63F38EE31A7D6BDE0062E3D8 /* Info.plist */,
@@ -197,6 +212,7 @@
 		63F38F0E1A7D7FB90062E3D8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				63FCF1E01A7E208700571873 /* Math */,
 				63FCF1D11A7D9AEB00571873 /* Network */,
 				63FCF1B31A7D993F00571873 /* Util */,
 				63F38F121A7D842E0062E3D8 /* MyoManager.swift */,
@@ -242,6 +258,19 @@
 				63FCF1D51A7D9AF900571873 /* Reachability.swift */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		63FCF1E01A7E208700571873 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				63FCF1EB1A7E20CE00571873 /* DoubleExtension.swift */,
+				63FCF1E11A7E20C300571873 /* ClockMath.swift */,
+				63FCF1E21A7E20C300571873 /* MatrixMath.swift */,
+				63FCF1E31A7E20C300571873 /* SequnceGenerators.swift */,
+				63FCF1E41A7E20C300571873 /* SwiftMath.swift */,
+				63FCF1E51A7E20C300571873 /* VectorMath.swift */,
+			);
+			name = Math;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +361,7 @@
 				63EA6A2A1A7D975200B20C4A /* Notes in Resources */,
 				63EA6A1F1A7D92B400B20C4A /* Gesture-reference-gesture.gif in Resources */,
 				63EA6A281A7D96C400B20C4A /* gesture.html in Resources */,
+				63FCF1DF1A7E1A8C00571873 /* clenched_fist-48.png in Resources */,
 				63FCF1DB1A7D9F0F00571873 /* flblog.png in Resources */,
 				63F38EEA1A7D6BDE0062E3D8 /* Main.storyboard in Resources */,
 				63F38EEF1A7D6BDE0062E3D8 /* LaunchScreen.xib in Resources */,
@@ -353,7 +383,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FCF1ED1A7E20CE00571873 /* DoubleExtension.swift in Sources */,
 				63F38EE51A7D6BDE0062E3D8 /* AppDelegate.swift in Sources */,
+				63FCF1E91A7E20C300571873 /* SwiftMath.swift in Sources */,
 				63FCF1BE1A7D9AD600571873 /* JSON.swift in Sources */,
 				63FCF1CD1A7D9ADF00571873 /* NSNumberExtension.swift in Sources */,
 				63FCF1D01A7D9AE300571873 /* Bundle.swift in Sources */,
@@ -363,7 +395,11 @@
 				63FCF1D61A7D9AF900571873 /* Connection.swift in Sources */,
 				63FCF1CA1A7D9ADF00571873 /* ColorExtension.swift in Sources */,
 				63FCF1B91A7D9ACE00571873 /* Regex.swift in Sources */,
+				63FCF1E61A7E20C300571873 /* ClockMath.swift in Sources */,
+				63FCF1E81A7E20C300571873 /* SequnceGenerators.swift in Sources */,
+				63FCF1EA1A7E20C300571873 /* VectorMath.swift in Sources */,
 				63FCF1D71A7D9AF900571873 /* ConnectionManager.swift in Sources */,
+				63FCF1E71A7E20C300571873 /* MatrixMath.swift in Sources */,
 				63FCF1DD1A7DD42900571873 /* Packets.swift in Sources */,
 				63EA6A0A1A7D854200B20C4A /* ConnectViewController.swift in Sources */,
 				63FCF1CC1A7D9ADF00571873 /* NSDataExtension.swift in Sources */,
