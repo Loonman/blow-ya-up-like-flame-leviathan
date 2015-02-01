@@ -49,7 +49,7 @@ class Car(object):
             percent = 30
         if percent < -30:
             percent = -30
-        motorRotateDegree([150], [percent - self.steer_deg], [PORT_C])
+        motorRotateDegree([150], [percent - self.steer_deg], [PORT_C], timeout=0.5)
         self.steer_deg = percent
         BrickPiUpdateValues()
 
@@ -58,9 +58,10 @@ class Car(object):
             percent = 255
         if percent < -255:
             percent = -255
-        BrickPi.MotorSpeed[self.left] = -percent
-        BrickPi.MotorSpeed[self.right] = -percent
-        BrickPiUpdateValues()
+        if percent > 0 or percent < 0:
+            BrickPi.MotorSpeed[self.left] = -percent
+            BrickPi.MotorSpeed[self.right] = -percent
+            BrickPiUpdateValues()
 
     def get_sensors(self, percent):
         pass
@@ -109,7 +110,8 @@ while True:
             except (ValueError, TypeError):
                 print "Bad Parse"
                 continue
-            if "speed" in s and s["speed"] != 0:
+            if "speed" in s and int(s["speed"]) != 0:
+                print s["speed"]
                 car.set_speed(s["speed"])
             if "steer" in s:
                 car.set_steering(s["steer"])
