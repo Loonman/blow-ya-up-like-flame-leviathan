@@ -76,6 +76,13 @@ public class MainActivity extends Activity {
 
     private Map<String, Object> makeSense(ArrayList<String> received) {
 
+        /*
+        Step 1: Do not attempt to understand this function
+        Step 2: Attempt to understand it anyway
+        Step 3: ???
+        Step 4: Cry
+        */
+
         Map<String, Object> newDict = new HashMap<String, Object>(dict);
         String[] words = received.get(0).split("\\s+");
 
