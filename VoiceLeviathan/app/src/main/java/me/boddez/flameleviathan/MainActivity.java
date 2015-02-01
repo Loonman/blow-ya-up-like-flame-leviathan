@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 
-import org.json.JSONObject;
+import com.google.gson.Gson;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.app.Activity;
+import android.content.Context;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,26 +21,22 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 
     public static TextView connectedView;
+    public boolean youreAnIdiot; // this should always be public
+    private Map<String, Object> dict;
 
     protected static final int REQUEST_OK = 1;
     private Connection c;
+    private String host = "192.168.1.100";
+    private int port = 50007;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        findViewById(R.id.button).setOnClickListener(this);
-        connectedView = (TextView) findViewById(R.id.connectedView);
-        connectedView.setText("Not connected");
-    }
-
-    public void connect() {
-        c = new Connection("192.168.1.100", 50007);
-        if (Connection.connected == 1) {
-            connectedView.setText("Connected");
-        } else {
-            connectedView.setText("Not connected");
-        }
+        dict = new HashMap<String, Object>();
+        dict.put("speed", "0");
+        dict.put("steer", "0");
+        dict.put("aux", false);
     }
 
     public void speak(View v) {
@@ -62,15 +60,29 @@ public class MainActivity extends Activity {
         if (requestCode==REQUEST_OK  && resultCode==RESULT_OK) {
             ArrayList<String> receivedSpeech = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             ((TextView)findViewById(R.id.received_speech)).setText(receivedSpeech.get(0));
-            Map<String, String> toConvert = makeSense(receivedSpeech);
+            Map<String, Object> toConvert = makeSense(receivedSpeech);
+            if (youreAnIdiot) {
+                Toast.makeText(getApplicationContext(), "You're an idiot", Toast.LENGTH_LONG).show();
+            } else {
+                try {
+                    dict = toConvert;
+                    Gson gson = new Gson();
+                    String json = gson.toJson(dict);
+                    Log.d("writing:", json);
+                    c.write(json + "\r\n");
+                }
+                catch (Exception e) {
+                    // lol
+                }
+            }
         }
     }
 
-    private Map<String, String> makeSense(ArrayList<String> received) {
-        Map<String, String> dict = new HashMap<String, String>();
+    private Map<String, Object> makeSense(ArrayList<String> received) {
+        Map<String, Object> newDict = new HashMap<String, Object>(dict);
         String[] words = received.get(0).split("\\s+");
 
-        boolean stop = true;
+        boolean stop = false;
         boolean moveIsActive = false;
         boolean dontIsActive = false;
         boolean turnIsActive = false;
@@ -80,21 +92,20 @@ public class MainActivity extends Activity {
         boolean setDirection = false; // forward vs backward
         boolean sortaIsActive = false;
         boolean reallyIsActive = false;
-        boolean youreAnIdiot = false;
+        youreAnIdiot = false;
 
         for (String word: words) {
+            Log.d("Parsing: ", word);
 
-            if (dontIsActive && !word.equals("don't")) continue;
-            if (stop) break;
-            if (youreAnIdiot) {
-                Toast.makeText(getApplicationContext(), "You're an idiot", Toast.LENGTH_LONG).show();
-                break;
-            }
+            if (dontIsActive && !word.equals("don't") && !word.equals("move") && !word.equals("drive")) continue;
+            if (stop || youreAnIdiot) break;
 
             switch (word) {
                 case "stop":
                     stop = true;
-                    dict.put("speed", "0");
+                    newDict.put("speed", "0");
+                    newDict.put("steer", "0");
+                    Log.d("Logic: ", "stopped");
                     break;
 
                 case "don't":
@@ -162,20 +173,22 @@ public class MainActivity extends Activity {
                         youreAnIdiot = true;
                         break;
                     }
-                    if (sortaIsActive) {
+                    if (reallyIsActive) {
                         if (positiveSpeed) {
-                            dict.put("speed", "180");
+                            newDict.put("speed", "255");
                         } else {
-                            dict.put("speed", "-180");
+                            newDict.put("speed", "-255");
                         }
-                    } else if (reallyIsActive) {
+                    } else {
+                        // default speed
                         if (positiveSpeed) {
-                            dict.put("speed", "255");
+                            newDict.put("speed", "180");
                         } else {
-                            dict.put("speed", "-255");
+                            newDict.put("speed", "-180");
                         }
                     }
                     sentSpeed = true;
+                    Log.d("Logic: ","set speed");
                     break;
 
                 case "slow":
@@ -184,21 +197,21 @@ public class MainActivity extends Activity {
                         youreAnIdiot = true;
                         break;
                     }
-                    if (sortaIsActive) {
+                    if (reallyIsActive) {
                         if (positiveSpeed) {
-                            dict.put("speed", "100");
+                            newDict.put("speed", "40");
                         } else {
-                            dict.put("speed", "-100");
+                            newDict.put("speed", "-40");
                         }
-
-                    } else if (reallyIsActive) {
+                    } else {
                         if (positiveSpeed) {
-                            dict.put("speed", "40");
+                            newDict.put("speed", "100");
                         } else {
-                            dict.put("speed", "-40");
+                            newDict.put("speed", "-100");
                         }
                     }
                     sentSpeed = true;
+                    Log.d("Logic: ","set speed");
                     break;
 
                 case "turn":case "steer":
@@ -208,23 +221,35 @@ public class MainActivity extends Activity {
                 case "left":
                     if (sentTurn) {
                         youreAnIdiot = true;
-                    } else {
-                        dict.put("steer","-30");
+                    } else if (turnIsActive) {
+                        newDict.put("steer","-20");
                         sentTurn = true;
+                        Log.d("Logic: ","set steer");
                     }
                     break;
 
                 case "right":
                     if (sentTurn) {
                         youreAnIdiot = true;
-                    } else {
-                        dict.put("steer","30");
+                    } else if (turnIsActive) {
+                        newDict.put("steer","20");
                         sentTurn = true;
+                        Log.d("Logic: ","set steer");
                     }
                     break;
+
             }
         }
-        return dict;
+        if (moveIsActive && !dontIsActive && !sentSpeed) {
+            newDict.put("speed", "180");
+            Log.d("Logic: ","set default speed");
+        }
+        if (!sentTurn) {
+            newDict.put("steer", "0");
+            Log.d("Logic: ","reset steering");
+        }
+
+        return newDict;
     }
 
     @Override
@@ -242,13 +267,15 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
         if (id == R.id.menu_connect) {
-            connect();
+            c = new Connection(host, port);
         }
-
+        if (id == R.id.menu_disconnect) {
+            c.disconnect();
+        }
         return super.onOptionsItemSelected(item);
     }
 }
