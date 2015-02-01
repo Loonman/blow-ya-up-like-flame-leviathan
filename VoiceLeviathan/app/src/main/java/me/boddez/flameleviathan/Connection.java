@@ -70,11 +70,12 @@ public class Connection extends Thread {
     }
 
     public void write(String toWrite, Object speed) {
-        if (speed == null || ((String)speed).equals("0")) {
+        if (speed == null || ((int)speed) == 0) {
             // do it once
             Log.d("Write: ", "doing it once");
             timer.cancel();
             this.writeBuffer += toWrite;
+            this.writeBuffer += "\r\n";
         } else {
             // do it lots of times
             Log.d("Write: ", "doing it lots of times");

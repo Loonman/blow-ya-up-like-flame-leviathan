@@ -33,8 +33,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dict = new HashMap<String, Object>();
-        dict.put("speed", "0");
-        dict.put("steer", "0");
+        dict.put("speed", 0);
+        dict.put("steer", 0);
         dict.put("aux", false);
     }
 
@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
                     Gson gson = new Gson();
                     String json = gson.toJson(dict);
                     Log.d("Writing: ", json);
-                    c.write(json + "\r\n", speed);
+                    c.write(json, speed);
                 }
                 catch (Exception e) {
                     // lol
@@ -112,8 +112,8 @@ public class MainActivity extends Activity {
             switch (word) {
                 case "stop":
                     stop = true;
-                    newDict.put("speed", "0");
-                    newDict.put("steer", "0");
+                    newDict.put("speed", 0);
+                    newDict.put("steer", 0);
                     Log.d("Logic: ", "stopped");
                     break;
 
@@ -135,7 +135,7 @@ public class MainActivity extends Activity {
                     if (setDirection) {
                         youreAnIdiot = true;
                     } else {
-                        positiveSpeed = moveIsActive;
+                        positiveSpeed = true;
                         setDirection = true;
                     }
                     break;
@@ -145,7 +145,7 @@ public class MainActivity extends Activity {
                     if (setDirection) {
                         youreAnIdiot = true;
                     } else {
-                        positiveSpeed = !moveIsActive;
+                        positiveSpeed = false;
                         setDirection = true;
                     }
                     break;
@@ -184,16 +184,16 @@ public class MainActivity extends Activity {
                     }
                     if (reallyIsActive) {
                         if (positiveSpeed) {
-                            newDict.put("speed", "255");
+                            newDict.put("speed", 255);
                         } else {
-                            newDict.put("speed", "-255");
+                            newDict.put("speed", -255);
                         }
                     } else {
                         // default speed
                         if (positiveSpeed) {
-                            newDict.put("speed", "180");
+                            newDict.put("speed", 180);
                         } else {
-                            newDict.put("speed", "-180");
+                            newDict.put("speed", -180);
                         }
                     }
                     sentSpeed = true;
@@ -208,15 +208,15 @@ public class MainActivity extends Activity {
                     }
                     if (reallyIsActive) {
                         if (positiveSpeed) {
-                            newDict.put("speed", "40");
+                            newDict.put("speed", 40);
                         } else {
-                            newDict.put("speed", "-40");
+                            newDict.put("speed", -40);
                         }
                     } else {
                         if (positiveSpeed) {
-                            newDict.put("speed", "100");
+                            newDict.put("speed", 100);
                         } else {
-                            newDict.put("speed", "-100");
+                            newDict.put("speed", -100);
                         }
                     }
                     sentSpeed = true;
@@ -231,7 +231,7 @@ public class MainActivity extends Activity {
                     if (sentTurn) {
                         youreAnIdiot = true;
                     } else if (turnIsActive) {
-                        newDict.put("steer","-20");
+                        newDict.put("steer",-20);
                         sentTurn = true;
                         Log.d("Logic: ","set steer");
                     }
@@ -241,7 +241,7 @@ public class MainActivity extends Activity {
                     if (sentTurn) {
                         youreAnIdiot = true;
                     } else if (turnIsActive) {
-                        newDict.put("steer","20");
+                        newDict.put("steer",20);
                         sentTurn = true;
                         Log.d("Logic: ","set steer");
                     }
@@ -266,7 +266,7 @@ public class MainActivity extends Activity {
                 case "earth":
                     if(strike2IsActive) {
                         hammer = true;
-                        newDict.put("speed", "0");
+                        newDict.put("speed", 0);
                         Log.d("Logic: ","hammered");
                     }
                     break;
@@ -274,7 +274,7 @@ public class MainActivity extends Activity {
                 case "time":
                     if (hammer2IsActive) {
                         hammer = true;
-                        newDict.put("speed", "0");
+                        newDict.put("speed", 0);
                         Log.d("Logic: ","hammered");
                     }
                     break;
@@ -286,12 +286,16 @@ public class MainActivity extends Activity {
             newDict.put("aux", false);
         }
 
-        if (moveIsActive && !dontIsActive && !sentSpeed) {
-            newDict.put("speed", "180");
+        if (moveIsActive && !dontIsActive && !sentSpeed && positiveSpeed) {
+            newDict.put("speed", 180);
+            Log.d("Logic: ","set default speed");
+        }
+        if (moveIsActive && !dontIsActive && !sentSpeed && !positiveSpeed) {
+            newDict.put("speed", -180);
             Log.d("Logic: ","set default speed");
         }
         if (!sentTurn) {
-            newDict.put("steer", "0");
+            newDict.put("steer", 0);
             Log.d("Logic: ","reset steering");
         }
 
