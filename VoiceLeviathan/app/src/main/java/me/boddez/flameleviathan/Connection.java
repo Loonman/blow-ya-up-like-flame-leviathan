@@ -65,7 +65,6 @@ public class Connection extends Thread {
     }
 
     public void write(String toWrite) {
-        Log.d("writing:", toWrite);
         this.writeBuffer += toWrite;
     }
 
