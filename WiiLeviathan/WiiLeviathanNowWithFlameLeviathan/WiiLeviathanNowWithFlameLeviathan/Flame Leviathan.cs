@@ -68,7 +68,7 @@ namespace WiiLeviathanNowWithFlameLeviathan
                 socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
                 //This works allegedly.... 
-                byte[] byteaddress = new byte[] { 192, 168, 1, 100 };
+                byte[] byteaddress = new byte[] { 10, 161, 1, 100 };
                 IPAddress address = new IPAddress(byteaddress);
 
                 IPEndPoint endpoint = new IPEndPoint(address, 50007);
