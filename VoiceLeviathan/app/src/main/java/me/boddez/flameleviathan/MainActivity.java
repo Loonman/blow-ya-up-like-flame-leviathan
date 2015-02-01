@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 //        }
 //    }
 
-    public void connect(View v) {
+    public void connect() {
         c = new Connection("192.168.1.100", 50007);
         if (Connection.connected == 1) {
             connectedView.setText("Connected");
@@ -60,7 +60,7 @@ public class MainActivity extends Activity {
     }
 
     public void sendw(View v) {
-        this.c.write("w");
+        this.c.write("w\n");
     }
 
     @Override
@@ -70,10 +70,12 @@ public class MainActivity extends Activity {
         if (requestCode==REQUEST_OK  && resultCode==RESULT_OK) {
             ArrayList<String> receivedSpeech = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             ((TextView)findViewById(R.id.received_speech)).setText(receivedSpeech.get(0));
-
-            c.write("w");
         }
     }
+
+//    private void makeSense(ArrayList<String> received) {
+//        String[] words = received.get(0).split("\\s+");
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -92,6 +94,9 @@ public class MainActivity extends Activity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        if (id == R.id.menu_connect) {
+            connect();
         }
 
         return super.onOptionsItemSelected(item);

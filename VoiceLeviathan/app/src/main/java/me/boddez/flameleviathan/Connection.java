@@ -5,7 +5,7 @@ package me.boddez.flameleviathan;
  */
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.io.DataOutputStream;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 import com.google.gson.Gson;
@@ -16,9 +16,10 @@ import android.widget.Toast;
 public class Connection extends Thread {
 
     private Socket socket;
-    private BufferedWriter out;
+    private DataOutputStream out;
 //    private BufferedReader in;
     public static int connected = 0;
+    private String writeBuffer = "";
 
     String host;
     int port;
@@ -36,11 +37,25 @@ public class Connection extends Thread {
         if (connected != 1) {
             try {
                 this.socket = new Socket(host, port);
-                this.out = new BufferedWriter(new OutputStreamWriter(this.socket.getOutputStream()));
+                this.out = new DataOutputStream(this.socket.getOutputStream());
                 if (this.out == null) {
                     Log.d("Connection", "shit's null bruh");
                 }
                 connected = 1;
+                while (connected == 1) {
+                    if (!this.writeBuffer.isEmpty()) {
+                        try {
+                            byte[] bytes = this.writeBuffer.getBytes();
+                            out.writeInt(bytes.length);
+                            out.write(bytes);
+                            out.flush();
+                        }
+                        catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -48,12 +63,8 @@ public class Connection extends Thread {
     }
 
     public void write(String toWrite) {
-        try {
-            out.write(toWrite + "\n");
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        Log.d("Connection:write", "trying to write");
+        this.writeBuffer += toWrite;
     }
 
     public void disconnect() {
@@ -64,5 +75,6 @@ public class Connection extends Thread {
         catch (Exception e) {
             e.printStackTrace();
         }
+        connected = 0;
     }
 }
